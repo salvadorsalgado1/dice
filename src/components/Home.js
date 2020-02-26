@@ -11,7 +11,7 @@ const cardStyle = {
 class Home extends React.Component{
   render(){
       return(
-          <div>
+          <div className = "Title">
             <Card style = {cardStyle}>
 
             <Card.Body>
