@@ -2,10 +2,15 @@ import React from 'react';
 import {Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
+const cardStyle = {
+    width:"18rem;"
+    ,height:"auto"
+}
+
 function Question(){
     return(
         <div className = "Question">
-            <Card>
+            <Card className = "w-100">
                 <Card.Body>
                     <h3>Project</h3>
                     <p className = "lead">
