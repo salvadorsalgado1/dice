@@ -7,7 +7,7 @@ import Chart from "chart.js";
 
 
 
-const dice = (props) =>{
+//const dice = (props) =>{
 
 
 let diceNums = [];
@@ -147,12 +147,7 @@ let diceTotal = [];
    
     console.log(diceAdd);
  
-}
-let array = [];
-array = [3,3];
-console.log(array);
 class Data extends React.Component{
-
 
     chartRef = React.createRef();
 
@@ -162,11 +157,6 @@ class Data extends React.Component{
         output:1,
         chartRef:null,
         label:"Expected",
-       
-        Two:3,
-        Three:2,
-        
-
         data: {
                 labels: ["1","2", "3", "4", "5", "6", "7", "8"],
                 datasets:{   
@@ -180,9 +170,7 @@ buttonIncrementHandler = (event, myChartRef) =>{
     this.setState({output: (this.state.value + 1)/12});
     console.log(this.state.data.datasets.data);
     
-    dice();
-
-
+   // dice();
 }
 
 buttonDeIncrementHandler = (event) =>{
@@ -196,6 +184,71 @@ this.setState({output: (this.state.value - 1)/12});
 
 componentDidUpdate() {
 
+
+let dice = [];
+
+for(let i = 1; i <= 36; i++){
+    dice.push( Math.floor((Math.random()*6)+1)+ Math.floor((Math.random()*6)+1));
+}
+    dice.sort(function(a,b){return a-b});
+    console.log(dice);
+
+    let One = 0;
+    let Two = 0;
+    let Three = 0;
+    let Four = 0;
+    let Five = 0;
+    let Six = 0;
+    let Seven = 0;
+    let Eight = 0;
+    let Nine = 0;
+    let Ten = 0;
+    let Eleven = 0;
+    let Twelve = 0;
+    for( let i = 0; i < dice.length; i++){
+
+        if(dice[i] === 1)
+        {
+            One++;
+           
+        }else if(dice[i]===2){
+            
+            Two++;
+           
+        }else if(dice[i] ===3){
+            Three++;
+           
+        }else if(dice[i] ===4){
+            Four++;
+            
+        }else if(dice[i] ===5){
+            Five++;
+           
+        }else if(dice[i]=== 6){
+            Six++;
+           
+        }else if(dice[i]===7){
+            Seven++;
+           
+        }else if(dice[i] ===8){
+            Eight++;
+           
+        }else if(dice[i] ===9){
+            Nine++;
+            
+        }else if(dice[i] ===10){
+            Ten++;
+           
+        }else if(dice[i]=== 11){
+            Eleven++;
+           
+        }else{
+            Twelve++;
+        }
+        
+    }
+
+
     console.log("Component did mount");
     const myChartRef = this.chartRef.current.getContext("2d");
     new Chart(myChartRef, {
@@ -203,23 +256,26 @@ componentDidUpdate() {
         data: {
             labels: [2,3,4,5,6,7,8,9,10,11,12],
                 datasets: [
-                {   data: [6,8,5,6,11,2,6],
+                   {
+                    data: [1/12,2/12,3/12,4/12,5/12, 6/12, 5/12, 4/12, 3/12, 2/12, 1/12],
                     label: this.state.label,
                     backgroundColor: "rgb(0, 200, 255)",
                     borderColor:"rgb(0, 200, 255)",
                 },
                 {
+                    data: [One/12,Two/12,Three/12,Four/12,Five/12,Six/12,Seven/12, Eight/12, Nine/12, Ten/12, Eleven/12, Twelve/12],
+                   
                     label: 'Probability',
                     backgroundColor: "rgb(255,99,71)",
                     borderColor: "gray",
-                    data: [6,7,4,5,10,7]
+                    
                 }
             ]
         },
         options: {
             scales: {
                 yAxes: [{
-                    ticks:{min:0,max:15},
+                    ticks:{min:0,max:1, stepSize:.1},
                     beginAtZero:true,
                   scaleLabel: {
                     display: true,
@@ -256,7 +312,8 @@ componentDidMount() {
             data: {
                 labels: [2,3,4,5,6,7,8,9,10,11,12],
                     datasets: [
-                    {   data: [4,4,4,5,6,10],
+                    {   
+                        data: [1/12,2/12,3/12,4/12,5/12, 6/12, 5/12, 4/12, 3/12, 2/12, 1/12],
                         label: this.state.label,
                         backgroundColor: "rgb(0, 200, 255)",
                         borderColor:"rgb(0, 200, 255)",
@@ -265,7 +322,7 @@ componentDidMount() {
                         label: 'Probability',
                         backgroundColor: "rgb(255,99,71)",
                         borderColor: "gray",
-                        data: [6,2,4,5,6,7]
+                        data: []
                     }
                 ]
             },
@@ -273,7 +330,7 @@ componentDidMount() {
               
                 scales: {
                     yAxes: [{
-                        ticks:{min:0,max:15},
+                        ticks:{min:0,max:1, stepSize:.1},
                       scaleLabel: {
                         display: true,
                         labelString: 'Probability',
@@ -311,8 +368,8 @@ componentDidMount() {
                 <p>Number of Dice: {this.state.value}</p> 
                 <p>Probability: {this.state.output.toFixed(3)}</p>
                 <canvas width = "400" height = "400" id="myChart" ref={this.chartRef} />
-                <Button className = "mt-4" onClick = {this.buttonIncrementHandler} block variant = "success">+</Button>
-                <Button onClick = {this.buttonDeIncrementHandler} block variant = "primary">-</Button>
+                <Button className = "mt-4" onClick = {this.buttonIncrementHandler} block variant = "primary">Calculate</Button>
+             {/*   <Button onClick = {this.buttonDeIncrementHandler} block variant = "primary">-</Button>*/}  
             </div>
        )
    }
