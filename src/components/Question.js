@@ -3,13 +3,14 @@ import {Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
 const cardStyle = {
-    width:"18rem;"
-    ,height:"auto"
-}
+    width:"100%",
+    justifyContent:"center",
+    boxShadow:"5px 4px 3px black"
+  }
 
 function Question(){
     return(
-        <div className = "Question">
+        <div className = "Question" style = {cardStyle}>
             <Card className = "w-100">
                 <Card.Body>
                     <h3>Project</h3>

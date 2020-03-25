@@ -7,6 +7,7 @@ const cardStyle = {
     justifyContent:"center",
     boxShadow:"5px 4px 3px black"
   }
+  
 class Home extends React.Component{
   render(){
       return(
