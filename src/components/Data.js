@@ -3,15 +3,6 @@ import React from 'react';
 import { Button} from 'react-bootstrap';
 import Chart from "chart.js";
 
-
-
-
-
-//const dice = (props) =>{
-//test
-//test2
-//test4
-
 let diceNums = [];
 let diceAdd = [];
 let diceTotal = [];
@@ -21,7 +12,6 @@ let diceTotal = [];
   }
   
   diceTotal.sort(function(a,b){return a-b});
-
   console.log(diceTotal);
 
   let One = 0;
@@ -91,7 +81,7 @@ let diceTotal = [];
     console.log(Ten + " Ten's");
     console.log(Eleven + " Eleven's");
     console.log(Twelve + " Twelve's");
-
+    console.log("the");
   for(let i = 1; i<= 6; i++)
   {
       for(let j= 1; j<=6; j++)
