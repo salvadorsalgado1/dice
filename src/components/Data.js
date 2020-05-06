@@ -9,6 +9,8 @@ import Chart from "chart.js";
 
 //const dice = (props) =>{
 //test
+//test2
+//test4
 
 let diceNums = [];
 let diceAdd = [];
