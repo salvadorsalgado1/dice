@@ -1,6 +1,6 @@
 {
   "homepage": "https://salvadorsalgado1.github.io/dice/",
-  "name": "math",
+  "name": "dice",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
