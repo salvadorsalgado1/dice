@@ -8,7 +8,7 @@ import Chart from "chart.js";
 
 
 //const dice = (props) =>{
-
+//test
 
 let diceNums = [];
 let diceAdd = [];
