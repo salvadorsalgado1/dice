@@ -3,32 +3,29 @@ import React from 'react';
 import { Button} from 'react-bootstrap';
 import Chart from "chart.js";
 //import Sum from './Sum';
-let diceNums = [];
-let diceAdd = [];
-let diceTotal = [];
-let count_6 = 0;
-let count_total = 0;
+
+    
+    let sumRandDice = [];//= diceRandOne + diceRandTwo;
+    let dice = [];
+    let count_6 = 0;
+    let count_total = 0;
+    let seven;
+    let eight;
+    let nine;
+    let ten;
+    let eleven;
+    let twelve;
+function probability() {
+     //---------------------------------------------
+    
 
 
-  for(let i = 1; i <= 36; i++){
-   diceTotal.push( Math.floor((Math.random()*6)+1)+ Math.floor((Math.random()*6)+1));
-  }
-  console.log(diceTotal);
-  diceTotal.sort(function(a,b){return a-b});
-  console.log("Sorted Random: "+diceTotal);
+}
+       
 
-  for(let i = 1; i<= 6; i++)
-  {
-      for(let j= 1; j<=6; j++)
-      {
 
-          diceNums.push("( "+ i+","+j+" )"+" => "+(i+j));
-          diceAdd.push(i+j);
-      }
-  }
-
- 
 class Data extends React.Component{
+  
     chartRef = React.createRef();
     state = {
         value: 1,
@@ -47,6 +44,7 @@ buttonIncrementHandler = (event, myChartRef) =>{
     this.setState({value: this.state.value + 1});
     this.setState({output: (this.state.value + 1)/12});
    // dice();
+   
 }
 
 buttonDeIncrementHandler = (event) =>{
@@ -54,85 +52,151 @@ this.setState({value: this.state.value - 1});
 this.setState({output: (this.state.value - 1)/12});
 }
 componentDidUpdate() {
-let dice = [];
 
-for(let i = 1; i <= 36; i++){
-    dice.push( Math.floor((Math.random()*6)+1)+ Math.floor((Math.random()*6)+1));
+
   
+//-----------------------------------------------------
+
+let counter2 =0;
+let counter3=0;
+let counter4=0;
+let counter5=0;
+let counter6=0;
+let counter7=0;
+let counter8=0;
+let counter9=0;
+let counter10=0;
+let counter11=0;
+let counter12=0;
+
+let six2 =0;
+let six3 =0;
+let six4 =0;
+let six5 =0;
+let six6 = 0;
+let six7=0;
+let six8 =0;
+let six9 =0;
+let six10 =0;
+let six11 =0;
+let six12 =0;
+
+let prob2 =0;
+let prob3 =0;
+let prob4 = 0;
+let prob5 = 0;
+let prob6 =0;
+let prob7 =0;
+let prob8 =0;
+let prob9 = 0;
+let prob10 = 0;
+let prob11 =0;
+let prob12 = 0;
+
+let dice1 ;
+let dice2;
+
+for(let i = 0; i < 10000; i++){
+ dice1 = Math.floor((Math.random()*6)+1);
+  dice2 = Math.floor((Math.random()*6)+1);
+
+let SumofDice = dice1 + dice2;
+
+if(SumofDice >=2 && SumofDice < 13){
+  if(SumofDice ==2){
+      counter2++;
+      if(dice1 ==6 || dice2 ==6){
+          six2++;
+      }
+      prob2 = six2/counter2;
+  }
+  if(SumofDice ==3){
+      counter3++;
+      if(dice1 ==6 || dice2 ==6){
+          six3++;
+      }
+      prob3 = six3/counter3;
+  }
+  if(SumofDice == 4){
+      counter4++;
+      if(dice1 ==6 || dice2 ==6){
+          six4++;
+      }
+      prob4 = six4/counter4;
+  }
+  if(SumofDice ==5){
+      counter5++;
+      if(dice1 ==6 || dice2 == 6){
+          six5++;
+      }
+      prob5 = six5/counter5;
+  }
+if(SumofDice == 7){
+      counter7++;
+      if(dice1 == 6 || dice2 == 6){
+          six7 ++;
+      }
+      prob7 =six7 / counter7;
+  }
+  if(SumofDice == 8){
+      counter8++;
+      if(dice1 ==6 || dice2 ==6){
+          six8++;
+      }
+   prob8 = six8/ counter8;
+  }
+  if(SumofDice == 9){
+      counter9++;
+      if(dice1 == 6 || dice2 ==6){
+          six9 ++ ;
+      }
+  prob9 = six9/ counter9;
+  }
+  if(SumofDice == 10){
+      counter10++;
+      if(dice1 ==6 || dice2 == 6){
+          six10++;
+      }
+      prob10 = six10 / counter10;
+  }
+  if (SumofDice == 11){
+      counter11++;
+      if(dice1 ==6 || dice2== 6){
+          six11 ++;
+      }
+      prob11 = six11/counter11;
+  }
+  if(SumofDice == 12){
+      counter12 ++;
+      if(dice1 ==6 || dice2 ==6){
+          six12 ++;
+      }
+      prob12 = six12/counter12;
+    }
+  }
 }
-let prob = [];
-let diceRandom = [];
+//-----------------------------------------------------
+console.log("2: " + prob2);
+console.log("3: " + prob3);
+console.log("4: " + prob4);
+console.log("5: " + prob5);
+console.log("6: " + prob6);
+console.log("7: " + prob7);
+console.log("8: " + prob8);
+console.log("9: " + prob9);
+console.log("10: " + prob10);
+console.log("11: " + prob11);
+console.log("12: " + prob12);
 
-function probability(sum) {
-    let i = 1, j = 1;
-    let count_6 = 0;
-    let count_total = 0;
-      if (sum < 6 || sum > 12) {return 0}
-        for(i = 1; i <= 6; i++) 
-        {
-          for(j = 1; j<= 6; j++) {
-            if(i+j == sum) {
-              count_total++;
-            if (i == 6 || j == 6) {
-              count_6++;
-              }
-            }
-          }
-        }
-    if(count_6 == 0){
-    return 0;   
-     }
-     return count_6/count_total.toFixed(3);
-    }
-      for(let i = 2; i <= 12; i++) {
-      //probability(4);
-      console.log(" when sum is" + i + " is:"+ probability(i).toFixed(3));
-      prob.push(probability(i).toFixed(3));
-    }
-    console.log("Probability in Array " + prob);
-    dice.sort(function(a,b){return a-b});
-    console.log(dice);
 
-    let One = 0;
-    let Two = 0;
-    let Three = 0;
-    let Four = 0;
-    let Five = 0;
-    let Six = 0;
-    let Seven = 0;
-    let Eight = 0;
-    let Nine = 0;
-    let Ten = 0;
-    let Eleven = 0;
-    let Twelve = 0;
 
-    for( let i = 0; i < dice.length; i++){
-        if(dice[i] === 1){
-            One++;
-        }else if(dice[i]===2){
-            Two++;
-        }else if(dice[i] ===3){
-            Three++;
-        }else if(dice[i] ===4){
-            Four++;
-        }else if(dice[i] ===5){
-            Five++;
-        }else if(dice[i]=== 6){
-            Six++;
-        }else if(dice[i]===7){
-            Seven++;
-        }else if(dice[i] ===8){
-            Eight++;
-        }else if(dice[i] ===9){
-            Nine++;
-        }else if(dice[i] ===10){
-            Ten++;
-        }else if(dice[i]=== 11){
-            Eleven++;
-        }else{
-            Twelve++;
-        }
-    }
+// 3 , 5 = 8
+
+    
+    
+   
+//---------------------------------------------------------
+
     const myChartRef = this.chartRef.current.getContext("2d");
     new Chart(myChartRef, {
         type: "bar",
@@ -146,7 +210,7 @@ function probability(sum) {
                     borderColor:"rgb(0, 200, 255)",
                 },
                 {
-                    data: [One/12,Two/12,Three/12,Four/12,Five/12,Six/12,Seven/12, Eight/12, Nine/12, Ten/12, Eleven/12, Twelve/12],
+                    data: [prob2,prob3,prob4,prob5,prob6,prob7, prob8, prob9, prob10, prob11,prob12 ],
                     label: 'Probability',
                     backgroundColor: "rgb(255,99,71)",
                     borderColor: "gray",
@@ -156,7 +220,7 @@ function probability(sum) {
         options: {
             scales: {
                 yAxes: [{
-                    ticks:{min:0,max:1.5, stepSize:.1},
+                    ticks:{min:0,max:1, stepSize:.1},
                     beginAtZero:true,
                   scaleLabel: {
                     display: true,
@@ -176,13 +240,10 @@ function probability(sum) {
                 display: true,
                 text: 'Dice Rolls',
             }
-            
-            //Customize chart options 
         }
         
     });
 }
-
 componentDidMount() {
         console.log("Component did mount");
         const myChartRef = this.chartRef.current.getContext("2d");
@@ -209,7 +270,7 @@ componentDidMount() {
               
                 scales: {
                     yAxes: [{
-                        ticks:{min:0,max:1.5, stepSize:.1},
+                        ticks:{min:0,max:1, stepSize:.1},
                       scaleLabel: {
                         display: true,
                         labelString: 'Probability',
@@ -221,8 +282,6 @@ componentDidMount() {
                           display: true,
                           labelString: 'Sum',
                           beginAtZero:true
-
-                          
                         }
                       }]
                   }     ,
@@ -231,22 +290,18 @@ componentDidMount() {
                     text: 'Dice Rolls',
                     
                 }
-                
-                
             }
             
         });
     }
-
    render(){
        return(
             <div className = "Data">
-                <p>Number of Dice: {this.state.value}</p> 
-
-                <p>Probability: {this.state.output.toFixed(3)}</p>
+                {/* <p>Number of Dice: {this.state.value}</p> */}
+     
+                {/* <p>Probability: {this.state.output.toFixed(3)}</p>*/}
                 <canvas width = "400" height = "400" id="myChart" ref={this.chartRef} />
-                <Button className = "mt-4" onClick = {this.buttonIncrementHandler} block variant = "primary">Calculate</Button>
-             {/*   <Button onClick = {this.buttonDeIncrementHandler} block variant = "primary">-</Button>*/}  
+                <Button className = "mt-4" onClick = {this.buttonIncrementHandler} block variant = "primary">Roll</Button>
             </div>
        )
    }

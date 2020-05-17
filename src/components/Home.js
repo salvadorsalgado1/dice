@@ -15,8 +15,13 @@ class Home extends React.Component{
             <Card style = {cardStyle}>
               <Card.Body>
                   <p className = "lead"><strong>Statistics and Probability</strong></p>
+                  <p className = "lead">Math 352</p>
                   <p className = "lead">Spring 2020</p>
-                  <p className = "lead">Members</p>
+                  <hr></hr>
+                  <p className = "lead">Daniel Ramirez</p>
+                  <p className = "lead">Juan Zarate</p>
+                  <p className = "lead">Salvador Salgado</p>
+                  <hr></hr>
                   <Link to = "/dice"><Button variant = "primary mr-4">Project</Button></Link>
                   <Link to = "/about"><Button variant = "secondary">About</Button></Link>
               </Card.Body>
