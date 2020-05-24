@@ -25,92 +25,86 @@ function probability(sum) {
      
     }
       for(let i = 2; i <= 12; i++) {
-      //probability(4);
+     
       console.log(" when sum is" + i + " is:"+ probability(i).toFixed(3));
       prob.push(probability(i).toFixed(3));
     }
 
 console.log(prob);
-//2: 0
-//3: 0
-//4: 0
-//5: 0
-//6: 0
-//7: .3333
-//8: .400
-//9: .500
-//10: .667
-//11: 1.00
-//12: 1.00
 
-
-const TableStats = () =>
+const TableStats = (props) =>
 {
     return(
         <div className = "table">
-            <Card>
-                <Card.Body>
-                    <h2>Table</h2>
-                        <Table striped bordered hover>
-                            
-                            <thead>
+                    <h3>Table</h3>
+                        <Table striped bordered hover responsive >
+                               <caption>Expected versus Experimental Values</caption>
+                            <thead> 
                                 <tr>
                                     <th>Sum</th>
-                                    <th>Probability</th>
+                                    <th>Expected</th>
+                                    <th>Experimental</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>2</td>
                                     <td>{prob[0]}</td>
+                                    <td>{props.two}</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>{prob[1]}</td>
+                                    <td>{props.three}</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>{prob[2]}</td>
+                                    <td>{props.four}</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td>{prob[3]}</td>
+                                    <td>{props.five}</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
                                     <td>{prob[4]}</td>
+                                    <td>{props.six}</td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
                                     <td>{prob[5]}</td>
+                                    <td>{props.seven}</td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
                                     <td>{prob[6]}</td>
+                                    <td>{props.eight}</td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
                                     <td>{prob[7]}</td>
+                                    <td>{props.nine}</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
                                     <td>{prob[8]}</td>
+                                    <td>{props.ten}</td>
                                 </tr>
                                 <tr>
                                     <td>11</td>
                                     <td>{prob[9]}</td>
+                                    <td>{props.eleven}</td>
                                 </tr>
                                 <tr>
                                     <td>12</td>
                                     <td>{prob[10]}</td>
+                                    <td>{props.twelve}</td>
                                 </tr>
                             </tbody>
                         </Table>
-                </Card.Body>
-            </Card>
-
         </div>
     )
 }
-
 export default TableStats

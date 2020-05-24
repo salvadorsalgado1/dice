@@ -1,11 +1,11 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-
 const cardStyle = {
     width:"100%",
     justifyContent:"center",
-    boxShadow:"5px 4px 3px black"
+    boxShadow:"3px 4px 3px black",
+    
   }
   
 class Home extends React.Component{
@@ -14,6 +14,7 @@ class Home extends React.Component{
           <div className = "Title">
             <Card style = {cardStyle}>
               <Card.Body>
+                  <p><i class="fa fa-grav fa-5x"></i></p>
                   <p className = "lead"><strong>Statistics and Probability</strong></p>
                   <p className = "lead">Math 352</p>
                   <p className = "lead">Spring 2020</p>
@@ -24,6 +25,7 @@ class Home extends React.Component{
                   <hr></hr>
                   <Link to = "/dice"><Button variant = "primary mr-4">Project</Button></Link>
                   <Link to = "/about"><Button variant = "secondary">About</Button></Link>
+                  
               </Card.Body>
             </Card>
           </div>
